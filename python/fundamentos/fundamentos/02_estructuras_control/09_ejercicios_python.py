@@ -76,29 +76,52 @@ def tablaMultiplicar():
 #6. Sumatoria con Centinela
 #Crea un programa que pida números continuamente y los sume. El ciclo debe terminar 
 # cuando el usuario ingrese un número negativo. Al final, muestra la suma total (sin incluir el negativo).
-suma = 0
-while True:
-    n = int(input("Ingresa un número (negativo para salir): "))
-    if n < 0:
-        break
-    suma += n
-print(f"La suma total es: {suma}")
+def sumatoriaCentinela():
+    suma_total = 0
+    while True:
+        n = int(input("Ingresa un número (negativo para salir): "))
+        if n < 0:
+            break
+        suma_total += n
+    print(f"La suma total es: {suma_total}")
 
 #7. Contador de Vocales
 #Pide al usuario una frase o palabra. Utiliza un bucle para recorrer la 
 # cadena y contar cuántas vocales tiene en total.
-frase = input("Ingresa una frase: ").lower()
-vocales = "aeiouáéíóú"
-contador = 0
-
-for letra in frase:
-    if letra in vocales:
-        contador += 1
-print(f"Total de vocales: {contador}")
+def contadorVocales():
+    texto = input("Ingrese una palabra o frase: ").lower()
+    vocales = 0
+    for i in range(len(texto)):
+        if texto[i] == "a" or texto[i] == "e" or texto[i] == "i" or texto[i] == "o" or texto[i] == "u":
+            vocales += 1
+        elif texto[i] == "á" or texto[i] == "é" or texto[i] == "í" or texto[i] == "ó" or texto[i] == "ú":
+            vocales += 1
+    print(f"La cadena '{texto}' tiene {vocales} vocales en total") 
 
 #8. Validación de Contraseña
 #Define una contraseña en una variable. Pide al usuario que la intente adivinar. 
 # Tienes un máximo de 3 intentos; si falla los 3, bloquea el acceso.
+def  validacion():
+    con = 12345678
+    intentos = 0
+    while True:
+        ingresa = int(input("ingresa la contraseña:"))
+        if ingresa == con:
+            print("acceso concedido")
+            break
+        else:
+            intentos += 1
+            if intentos > 3:
+                print("acceso denegado")
+                break
+    else:
+        print(f"numeros de intentos: {intentos}")
+    validacion()
+
+
+
+
+
 password_real = "python123"
 intentos = 3
 
