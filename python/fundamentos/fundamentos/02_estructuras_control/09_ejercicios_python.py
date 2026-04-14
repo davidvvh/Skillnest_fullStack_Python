@@ -101,9 +101,9 @@ def contadorVocales():
 #8. Validación de Contraseña
 #Define una contraseña en una variable. Pide al usuario que la intente adivinar. 
 # Tienes un máximo de 3 intentos; si falla los 3, bloquea el acceso.
-def  validacion():
+def validacion():
     con = 12345678
-    intentos = 0
+    intentos = 1
     while True:
         ingresa = int(input("ingresa la contraseña:"))
         if ingresa == con:
@@ -114,25 +114,8 @@ def  validacion():
             if intentos > 3:
                 print("acceso denegado")
                 break
-    else:
-        print(f"numeros de intentos: {intentos}")
-    validacion()
-
-
-
-
-
-password_real = "python123"
-intentos = 3
-
-while intentos > 0:
-    intento = input(f"Ingresa la contraseña ({intentos} intentos restantes): ")
-    if intento == password_real:
-        print("¡Acceso concedido!")
-        break
-    intentos -= 1
-    if intentos == 0:
-        print("Acceso bloqueado.")
+            else:
+                print(f"numeros de intentos: {intentos}")
 
 
 #III. Manejo de Arreglos / Listas (Avanzado)
@@ -140,52 +123,62 @@ while intentos > 0:
 #9. Registro de Nombres
 #Crea un arreglo vacío. Pide al usuario que ingrese 5 nombres. Guárdalos en el arreglo y, 
 # al final, imprímelos en orden inverso al que fueron ingresados.
-nombres = []
-for i in range(5):
-    nombre = input(f"Ingresa el nombre {i+1}: ")
-    nombres.append(nombre)
+def nombre():
+    nombres = []
+    maxi = 0
 
-print("Nombres en orden inverso:")
-for n in reversed(nombres):
-    print(n)
+    while maxi < 5:
+        inp = input("Por favor ingresar nombre")
+        if inp != "":
+            nombres.append(inp)
+        else:
+            print("Tienes que ingresar un nombre")
+        maxi += 1
+    for i in range(4, -1, -1):
+        print(nombres[i])
 
 #10. Promedio de Notas
 #Solicita al usuario cuántas notas desea ingresar. Almacena cada nota en un arreglo. 
 # Al finalizar, calcula y muestra el promedio, la nota más alta y la más baja.
-cantidad = int(input("¿Cuántas notas vas a ingresar?: "))
-notas = []
+def promedioNotas():
+    cantidad =int(input("¿Cuantas notas desea ingresar?"))
+    notas = []
+    for i in range(cantidad):
+        nota = float(input(f"Nota {i+1}: "))
+        notas.append(nota)
 
-for i in range(cantidad):
-    nota = float(input(f"Nota {i+1}: "))
-    notas.append(nota)
-
-promedio = sum(notas) / len(notas)
-print(f"Promedio: {promedio:.2f}")
-print(f"Nota más alta: {max(notas)}")
-print(f"Nota más baja: {min(notas)}")
+    promedio = sum(notas) / len(notas)
+    print(f"Promedio: {promedio}")
+    print(f"Nota mas alta: {max(notas)}")
+    print(f"Nota mas baja: {min(notas)}")
 
 #11. Filtro de Arreglos
 #Dado un arreglo de números generado por el usuario, crea un nuevo arreglo que contenga 
 # solo los números que sean mayores a 50. Muestra ambos arreglos.
 # Suponiendo que el usuario ingresa números separados por espacio
-entrada = input("Ingresa números separados por espacio: ")
-original = [int(x) for x in entrada.split()]
-filtrados = [n for n in original if n > 50]
-
-print(f"Original: {original}")
-print(f"Mayores a 50: {filtrados}")
+def filtroArreglos():
+    cantidad = int(input("¿Cuantos numeros desea ingresar?: "))
+    mayor50 = []
+    nUser = []
+    for i in range(1, cantidad + 1):
+        arrayUsuario = int(input("Ingrese un numero: "))
+        if arrayUsuario > 50:
+            mayor50.append(arrayUsuario)
+        else:
+            nUser.append(arrayUsuario)
+        print(f"Valor ingresado por el usuario: {nUser} \nValor mayor a 50: {mayor50}")
 
 #12. Buscador de Elementos
 #Crea una lista de 10 ciudades. Pide al usuario que ingrese el nombre de una ciudad y 
 # el programa debe decir si la ciudad se encuentra en la lista y en qué índice (posición) está.
-ciudades = ["Madrid", "Bogotá", "Santiago", "CDMX", "Lima", "Buenos Aires", "Quito", "Montevideo", "Asunción", "La Paz"]
-busqueda = input("Ingresa la ciudad a buscar: ").title()
-
-if busqueda in ciudades:
-    indice = ciudades.index(busqueda)
-    print(f"{busqueda} se encuentra en el índice {indice}.")
-else:
-    print("La ciudad no está en la lista.")
+def buscadorElementos():
+    ciudades = ["Tokio", "Seul", "NewYork", "Moscu", "Madril", "Paris", "Ottawa", "Lisboa"]
+    ciudad = input("Ingresar ciudad (con mayuscula al inicio): ")
+    esta = ciudades.index(ciudad)
+    if esta < len(ciudades):
+        print(f"Tu ciudad está en el arreglo, en la posicion {esta}")
+    else:
+        print("Tu ciudad no está en el arreglo")
 
 
 #IV. Retos de Lógica Combinada
@@ -193,51 +186,60 @@ else:
 #13. Simulación de Inventario
 #Crea dos arreglos: uno para nombres_productos y otro para precios. Permite al usuario ingresar 
 # 3 productos con sus precios. Luego, muestra una lista formateada: Producto: [Nombre] - Precio: $[Valor].
-nombres_productos = []
-precios = []
+def inventario():
+    nombre_productos = []
+    precios = []
 
-for i in range(3):
-    nombres_productos.append(input(f"Nombre del producto {i+1}: "))
-    precios.append(float(input(f"Precio del producto {i+1}: ")))
+    for i in range(3):
+        nombre = input("Nombre del producto: ")
+        precio = float(input("Precio: "))
+        nombre_productos.append(nombre)
+        precios.append(precio)
+    print("\nInventario: ")
+    for i in range(3):
+        print(f"Producto: {nombre_productos[i]} - precio {precio[i]}")
 
-print("\n--- Inventario ---")
-for i in range(3):
-    print(f"Producto: {nombres_productos[i]} - Precio: ${precios[i]:.2f}")
 
 #14. Generador de Lista de Compras
 #Usa un bucle while para que el usuario agregue artículos a una lista de compras. El proceso 
 # termina cuando el usuario escribe "terminar". Al final, muestra la lista ordenada alfabéticamente.
-lista = []
-while True:
-    item = input("Agrega un artículo (o escribe 'terminar'): ").lower()
-    if item == "terminar":
-        break
-    lista.append(item)
-
-lista.sort()
-print(f"Tu lista de compras: {lista}")
+def listaCompras():
+    lista = []
+    while True:
+        item = input("Artículo (o 'terminar')")
+        if item.lower() == "terminar":
+            break
+        lista.append(item)
+    print(f"Ordenado: {sorted(lista)}")
 
 #15. Análisis de Temperaturas
 #Solicita las temperaturas de los 7 días de la semana y guárdalas en un arreglo. Muestra:
 # El promedio semanal.
 # Cuántos días la temperatura fue superior a 25 grados.
 # El día con la temperatura más baja (asumiendo que el índice 0 es Lunes).
-dias = ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"]
-temps = []
+def analisisTemperatura():
+    dias = ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"]
+    diasSuperior = []
+    total = 0
+    baja = 100
+    diaBaja = ""
+    cant = 0
 
-for dia in dias:
-    t = float(input(f"Temperatura del {dia}: "))
-    temps.append(t)
+    while cant < 7:
+        temps = float(input(f"ingrese temperatura del dia {dias(cant)}"))
+        total += temps
 
-promedio = sum(temps) / 7
-sobre_25 = len([t for t in temps if t > 25])
-min_temp = min(temps)
-dia_frio = dias[temps.index(min_temp)]
+        if temps < baja and temps < 25:
+            baja = temps
+            diaBaja = dias[cant]
+        elif temps > 25:
+            diasSuperior.append(dias[cant])
 
-print(f"\nResultados:")
-print(f"- Promedio semanal: {promedio:.1f}°C")
-print(f"- Días con más de 25°C: {sobre_25}")
-print(f"- El día más frío fue el {dia_frio} con {min_temp}°C")
+        cant += 1
+
+    print(f"el promedio de las temperaturas fue de {total / 7}")
+    print(f"el dia con la temperatura mas baja fue el dia {diaBaja} con {baja}")
+    print(f"los dias mas calurosos fueron {diasSuperior}")
 
 
 
@@ -265,7 +267,46 @@ while continuar:
         numerosDinamicos()
     elif opcion == "2":
         print("\nejecutando ejercicio 2: ")
-        verificador_edad
+        verificador_edad()
+    elif opcion == "3":
+        print("\nejecutando ejercicio 3: ")
+        aplicarDescuento()
+    elif opcion == "4":
+        print("\nejecutando ejercicio 4: ")
+        clasificadorNum()
+    elif opcion == "5":
+        print("\nejecutando ejercicio 5: ")
+        tablaMultiplicar()
+    elif opcion == "6":
+        print("\nejecutando ejercicio 6: ")
+        sumatoriaCentinela()
+    elif opcion == "7":
+        print("\nejecutando ejercicio 7: ")
+        contadorVocales()
+    elif opcion == "8":
+        print("\nejecutando ejercicio 8: ")
+        validacion()
+    elif opcion == "9":
+        print("\nejecutando ejercicio 9: ")
+        nombre()
+    elif opcion == "10":
+        print("\nejecutando ejercicio 10: ")
+        promedioNotas()
+    elif opcion == "11":
+        print("\nejecutando ejercicio 11: ")
+        filtroArreglos()
+    elif opcion == "12":
+        print("\nejecutando ejercicio 12: ")
+        buscadorElementos()
+    elif opcion == "13":
+        print("\nejecutando ejercicio 13: ")
+        inventario()
+    elif opcion == "14":
+        print("\nejecutando ejercicio 14: ")
+        listaCompras()
+    elif opcion == "15":
+        print("\nejecutando ejercicio 15: ")
+        analisisTemperatura()
     elif opcion == "0":
         print("saliendo...")
         continuar = False

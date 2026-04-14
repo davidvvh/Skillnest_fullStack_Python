@@ -206,3 +206,13 @@ print(f"\nResultados:")
 print(f"- Promedio semanal: {promedio:.1f}°C")
 print(f"- Días con más de 25°C: {sobre_25}")
 print(f"- El día más frío fue el {dia_frio} con {min_temp}°C")
+
+
+
+
+
+
+
+
+random
+print(f"\nResultados:")
