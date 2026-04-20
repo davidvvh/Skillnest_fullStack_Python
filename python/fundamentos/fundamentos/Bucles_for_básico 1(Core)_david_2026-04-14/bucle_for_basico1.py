@@ -44,7 +44,12 @@ for retroceso in range(2024, -3, -3):
 # 6. Contador dinámico
 # Declara las variables inicio, fin, y salto (por ejemplo: inicio=3, fin=10, salto=2).
 # Imprime los números en el rango que sean múltiplos de 'salto'.
-# (Tu código aquí)
+inicio = 5
+fin = 12
+salto = 7
+for i in range(inicio, fin, 7):
+    if i % salto:
+        print(i)
 
 # Ejemplo: si inicio = 3, fin = 10, y salto = 2
 # Se imprimiría: 4, 6, 8, 10
