@@ -216,3 +216,8 @@ print(f"- El día más frío fue el {dia_frio} con {min_temp}°C")
 
 random
 print(f"\nResultados:")
+
+
+
+
+
