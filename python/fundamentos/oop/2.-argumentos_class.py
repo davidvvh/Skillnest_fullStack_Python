@@ -32,6 +32,9 @@ class Estudiante:
         self.especialidad = especialidad
         self.fecha_nac = fecha_nac
 
-kitty = Estudiante("20.135.692-8", "jester", "kitty", "programacion", "09/06/2005")
-pocki = Estudiante()
-flor = Estudiante()
+kitty = Estudiante("20.135.692-8", "jester", "kitty", "contabilidad", "09/06/2008")
+pocki = Estudiante("19.073.107-0", "shadow", "pocki", "programacion", "15/11/2006")
+flor = Estudiante("17.390.069-1", "florecilla", "flor", "logistica", "08/06/2009")
+print(f"Me llamo {kitty.nombre}, me apellido {kitty.apellido}, y soy de {kitty.especialidad}")
+print(f"me llamo {pocki.nombre}, me apellido {pocki.apellido}, y soy de {pocki.especialidad}")
+print(f"me llamo {flor.nombre}, me apellido {flor.apellido}, y soy de {flor.especialidad}")
