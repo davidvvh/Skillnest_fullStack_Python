@@ -9,25 +9,46 @@ class UsuarioStreaming:
 
     def agregar_a_lista(self, titulo):
         """Agrega un contenido a la lista de reproducción del usuario."""
-        pass
+        self.lista_reproduccion.append(titulo)
+        print(f"titulo '{titulo}' agregado correctamente")
 
 
     def ver_contenido(self, titulo):
         """Simula que el usuario reproduce un contenido."""
-        pass
+        if titulo in self.lista_reproduccion:
+            print(f"el usuario {self.nombre} esta viendo '{titulo}'")
+        else:
+            print(f"titulo no encontrado {titulo}")
 
 
     def cambiar_suscripcion(self, nueva_suscripcion):
         """Cambia el tipo de suscripción del usuario."""
-        pass
+        susAntigua = self.suscripcion
+        self.suscripcion = nueva_suscripcion
+        print(f"suscripcion cambio de {susAntigua} a {nueva_suscripcion}")
 
 
     def mostrar_info_usuario(self):
         """Muestra la información del usuario y su lista de reproducción."""
-        pass
+        print(f"nombre: {self.nombre}")
+        print(f"email: {self.email}")
+        print(f"suscripcion: {self.suscripcion}")
+        if len(self.lista_reproduccion) == 0:
+            print("la lista de reproduccion esta vacia")
+        else:
+            print(f"lista de reproduccion: \n- {"\n- ".join(self.lista_reproduccion)}")
 
-miyagi = UsuarioStreaming("Nariyoshi", "Miyagi", "miyagi@codingdojo.la")
-daniel = UsuarioStreaming("Daniel", "Larusso", "daniel@codingdojo.la")
+shadow = UsuarioStreaming("shadow", "shadow@gmail.com")
+shadow.agregar_a_lista("la mascara")
+shadow.cambiar_suscripcion("premium")
+shadow.ver_contenido("the mask")
+shadow.mostrar_info_usuario()
+
+kitty = UsuarioStreaming("kitty", "kitty@gmail.com")
+kitty.agregar_a_lista("doki doki")
+kitty.cambiar_suscripcion("estandar")
+kitty.ver_contenido("Gliter Force")
+kitty.mostrar_info_usuario()
 
 
 
@@ -40,12 +61,7 @@ while continuar:
     print("---3.- ejercicio 3---")
     print("---4.- ejercicio 4---")
     print("---5.- ejercicio 5---")
-    print("---6.- ejercicio 6---")
-    print("---7.- ejercicio 7---")
-    print("---8.- ejercicio 8---")
-    print("---9.- ejercicio 9---")
-    print("---10.- ejercicio 10---")
-    opcion = input("\n---- elige una opcion: (1-15) (0 para salir) =")
+    opcion = input("\n---- elige una opcion: (1-5) (0 para salir) =")
     if opcion == "1":
         print("\nejecutando ejercicio 1: ")
         ()
@@ -60,22 +76,6 @@ while continuar:
         ()
     elif opcion == "5":
         print("\nejecutando ejercicio 5: ")
-        ()
-    elif opcion == "6":
-        print("\nejecutando ejercicio 6: ")
-        ()
-    elif opcion == "7":
-        print("\nejecutando ejercicio 7: ")
-        ()
-    elif opcion == "8":
-        print("\nejecutando ejercicio 8: ")
-        ()
-    elif opcion == "9":
-        print("\nejecutando ejercicio 9: ")
-        ()
-    elif opcion == "10":
-        print("\nejecutando ejercicio 10: ")
-        ()
     elif opcion == "0":
         print("saliendo...")
         continuar = False
