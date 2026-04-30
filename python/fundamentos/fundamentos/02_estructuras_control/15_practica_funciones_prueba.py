@@ -128,19 +128,36 @@ notas()
 
 
 #ejercicio 5
-def C():
-    return
+def descuento(valor):
+    sumaLista = sum(valor)
+    precioInicial = sumaLista
+    descuento = sumaLista * 0.1
+    precioFinal = precioInicial - descuento
+    print(f"el precio inicial del producto es: \n{precioInicial}\ny con descuento \n{precioFinal}")
 
-def C():
-    return
+def valores():
+    cantidadProductos = int(input("ingrese la cantidad de productos que quiera:\n"))
+    listaPrecios = []
+    for i in range(cantidadProductos):
+        valorProducto = float(input("ingrese el valor del producto:\n"))
+        listaPrecios.append(valorProducto)
+    descuento(listaPrecios)
+valores()
 
 
 #ejercicio 6
-def C():
-    return
+def parImpar(numero):
+    if numero % 2 == 0:
+        print(f"el numero {numero} es par")
+    elif numero % 3 == 0:
+        print(f"el numero {numero} es impar")
+    else:
+        print("error")
 
-def C():
-    return
+def recibirNum():
+    num = int(input("ingrese un numero: "))
+    parImpar(num)
+recibirNum()
 
 
 #ejercicio 7
@@ -204,10 +221,10 @@ while continuar:
         notas()
     elif opcion == "5":
         print("\n-------------descuento 10%-------------")
-        ()
+        valores()
     elif opcion == "6":
         print("\n-------------par o impar-------------")
-        ()
+        recibirNum()
     elif opcion == "7":
         print("\n-------------calcular edad-------------")
         ()
