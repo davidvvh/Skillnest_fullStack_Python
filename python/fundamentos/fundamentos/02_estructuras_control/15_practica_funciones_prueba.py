@@ -98,7 +98,6 @@ def mostrar():
     listaNombres = filtrar(nombres)
     print(f"los nombres con mas de 5 letras son: \n- {("\n").join(listaNombres)}")
 
-mostrar()
 
 
 #ejercicio 4
@@ -124,7 +123,6 @@ def notas():
         if inp != "":
             nota.append(inp)
     print(listaNotas(nota))
-notas()
 
 
 #ejercicio 5
@@ -142,7 +140,6 @@ def valores():
         valorProducto = float(input("ingrese el valor del producto:\n"))
         listaPrecios.append(valorProducto)
     descuento(listaPrecios)
-valores()
 
 
 #ejercicio 6
@@ -157,23 +154,45 @@ def parImpar(numero):
 def recibirNum():
     num = int(input("ingrese un numero: "))
     parImpar(num)
-recibirNum()
 
 
 #ejercicio 7
-def C():
-    return
+def edades(lista):
+    num = 0
+    for i in range(len(lista)):
+        if lista[i] >= 18:
+            num += 1
+    return num
 
-def C():
-    return
+def personas():
+    edad = []
+    inp = int(input("cuantas personas van a ingresar hoy?: "))
+    for i in range(inp):
+        var = int(input(">> "))
+        if var != "":
+            edad.append(var)
+        else:
+            print("porfavor ingresa un valor valido")
+    resultado = edades(edad)
+    print(f"hay {resultado} personas mayores de edad")
 
 
 #ejercicio 8
-def C():
-    return
+def vecesqAparece(palabras):
+    buscar = input("ingrese la palabra que desea buscar: ")
+    vecesqAparece = 0
+    for i in range(len(palabras)):
+        if buscar == palabras[i]:
+            vecesqAparece += 1
+    print(f"la palabra {buscar} aparece {vecesqAparece} en la lista")
 
-def C():
-    return
+def recibirpalabras():
+    cantidad = int(input("ingrese la cantidad de palabras: "))
+    listaPalabras = []
+    for i in range(cantidad):
+        palabra = input(f"{i + 1}")
+        listaPalabras.append(palabra)
+    vecesqAparece(listaPalabras)
 
 
 #ejercicio 9
@@ -206,7 +225,7 @@ while continuar:
     print("---8.- ejercicio 8---")
     print("---9.- ejercicio 9---")
     print("---10.- ejercicio 10---")
-    opcion = input("\n---- elige una opcion: (1-15) (0 para salir) =")
+    opcion = input("\n---- elige una opcion: (1-10) (0 para salir) = ")
     if opcion == "1":
         print("\n-------------mayor y menor-------------")
         numerosLista()
@@ -227,10 +246,10 @@ while continuar:
         recibirNum()
     elif opcion == "7":
         print("\n-------------calcular edad-------------")
-        ()
+        personas()
     elif opcion == "8":
         print("\n-------------buscar palabras-------------")
-        ()
+        recibirpalabras()
     elif opcion == "9":
         print("\n-------------lista de números y nueva lista-------------")
         ()
