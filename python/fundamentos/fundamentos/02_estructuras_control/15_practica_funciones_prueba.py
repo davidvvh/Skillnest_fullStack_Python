@@ -80,7 +80,79 @@ def textoVocales():
     contar_vocales(texto)
 
 
+#ejercicio 3
+def nombreListado(listado):
+    listalet = listado
+    menos = min(listalet)
+    mas = max(listalet)
+    print(f"el numero mayor es {mas}\nEl numero menor es {menos}")
 
+def C():
+    nombres = []
+    maxi = 0
+    while maxi < 5:
+        inp = input("porfavor ingresa un nombre: ")
+        if inp !="":
+            nombres.append(inp)
+        else:
+            print("tienes que ingresar un nombre")
+            
+
+
+#ejercicio 4
+def C():
+    return
+
+def C():
+    return
+
+
+#ejercicio 5
+def C():
+    return
+
+def C():
+    return
+
+
+#ejercicio 6
+def C():
+    return
+
+def C():
+    return
+
+
+#ejercicio 7
+def C():
+    return
+
+def C():
+    return
+
+
+#ejercicio 8
+def C():
+    return
+
+def C():
+    return
+
+
+#ejercicio 9
+def C():
+    return
+
+def C():
+    return
+
+
+#ejercicio 10
+def C():
+    return
+
+def C():
+    return
 
 
 
@@ -123,10 +195,10 @@ while continuar:
         print("\n-------------buscar palabras-------------")
         ()
     elif opcion == "9":
-        print("\nejecutando ejercicio 9: ")
+        print("\n-------------lista de números y nueva lista-------------")
         ()
     elif opcion == "10":
-        print("\nejecutando ejercicio 10: ")
+        print("\n-------------lista de productos-------------")
         ()
     elif opcion == "0":
         print("saliendo...")
