@@ -81,30 +81,50 @@ def textoVocales():
 
 
 #ejercicio 3
-def nombreListado(listado):
-    listalet = listado
-    menos = min(listalet)
-    mas = max(listalet)
-    print(f"el numero mayor es {mas}\nEl numero menor es {menos}")
-
-def C():
+def filtrar(lista):
+    resultado = []
+    for nombre in lista:
+        if len(nombre) > 5:
+            resultado.append(nombre)
+    return resultado
+def mostrar():
     nombres = []
-    maxi = 0
-    while maxi < 5:
-        inp = input("porfavor ingresa un nombre: ")
-        if inp !="":
-            nombres.append(inp)
-        else:
-            print("tienes que ingresar un nombre")
-            
+    cantidad = int(input("¿cuantos nombres quiere ingresar?: "))
+    for i in range(cantidad):
+        nombre = input("ingrese un nombre: ")
+        print(f"{nombre} agregado con exito a la lista")
+        nombres.append(nombre)
+    
+    listaNombres = filtrar(nombres)
+    print(f"los nombres con mas de 5 letras son: \n- {("\n").join(listaNombres)}")
+
+mostrar()
 
 
 #ejercicio 4
-def C():
-    return
+def listaNotas(notas):
+    lista = 0
+    promedio = 0
+    for i in range(len(notas)):
+        lista += notas[1]
+        promedio = lista / (len(notas) + 1)
 
-def C():
-    return
+    if notas[i] >= 4.0 and notas[i] <= 7.0:
+        print(f"el estudiante aprueba con {promedio}")
+    elif notas[i] >= 1 and notas[i] <= 3.9:
+        print(f"el estudiante no aprueba con {promedio}")
+    else:
+        return "error"
+
+def notas():
+    largo = int(input("cuantas notas va a ingresar: "))
+    nota = []
+    for i in range(largo):
+        inp = float(input(f"ingrese nota {i + 1}: "))
+        if inp != "":
+            nota.append(inp)
+    print(listaNotas(nota))
+notas()
 
 
 #ejercicio 5
@@ -178,10 +198,10 @@ while continuar:
         textoVocales()
     elif opcion == "3":
         print("\n-------------mas de 5 letras-------------")
-        ()
+        mostrar()
     elif opcion == "4":
         print("\n-------------notas-------------")
-        ()
+        notas()
     elif opcion == "5":
         print("\n-------------descuento 10%-------------")
         ()
