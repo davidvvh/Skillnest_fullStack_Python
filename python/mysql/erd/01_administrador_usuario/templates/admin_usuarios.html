@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Admin</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../static/css/dashboard_mensajes.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <div class="header-actions">
+            <button class="btn-new">Nuevo Usuario</button>
+        </div>
+        <table class="user-table">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>E-mail</th>
+                    <th>Tipo Usuario</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Patricia</td>
+                    <td>patricia@codingdojo.com</td>
+                    <td>Admin</td>
+                    <td class="actions-cell">
+                        <button class="action-btn" title="Editar"><i class="fa-solid fa-pencil"></i></button>
+                        <button class="action-btn" title="Eliminar"><i class="fa-solid fa-trash"></i></button>
+                        <button class="action-btn" title="Mensaje"><i class="fa-solid fa-envelope"></i></button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Andrea</td>
+                    <td>andrea@codingdojo.com</td>
+                    <td>Usuario</td>
+                    <td class="actions-cell">
+                        <button class="action-btn" title="Editar"><i class="fa-solid fa-pencil"></i></button>
+                        <button class="action-btn" title="Eliminar"><i class="fa-solid fa-trash"></i></button>
+                        <button class="action-btn" title="Mensaje"><i class="fa-solid fa-envelope"></i></button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Katya</td>
+                    <td>katya@codingdojo.com</td>
+                    <td>Usuario</td>
+                    <td class="actions-cell">
+                        <button class="action-btn" title="Editar"><i class="fa-solid fa-pencil"></i></button>
+                        <button class="action-btn" title="Eliminar"><i class="fa-solid fa-trash"></i></button>
+                        <button class="action-btn" title="Mensaje"><i class="fa-solid fa-envelope"></i></button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="sticky-note">
+            <div class="tape"></div>
+            <p>Los administradores pueden crear, editar y borrar usuarios</p>
+        </div>
+    </div>
+</body>
+</html>

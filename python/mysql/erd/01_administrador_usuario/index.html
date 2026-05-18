@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio de Sesión y Registro - Skillnest</title>
+    <link rel="stylesheet" href="../01_administrador_usuario/static/css/style.css">
+</head>
+<body>
+    <main class="container">
+        <section class="form-section">
+            <h2>Inicio de Sesión</h2>
+            <form action="#" method="POST">
+                <div class="form-group">
+                    <label for="login-email">E-mail</label>
+                    <input type="email" id="login-email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Contraseña</label>
+                    <input type="password" id="login-password" name="password" required>
+                </div>
+                <button type="submit" class="btn">Iniciar Sesión</button>
+            </form>
+        </section>
+        <section class="form-section">
+            <h2>Registro</h2>
+            <form action="#" method="POST">
+                <div class="form-group">
+                    <label for="reg-name">Nombre</label>
+                    <input type="text" id="reg-name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="reg-email">E-mail</label>
+                    <input type="email" id="reg-email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="reg-password">Contraseña</label>
+                    <input type="password" id="reg-password" name="password" required>
+                </div>
+                <div class="form-group">
+                    <label for="reg-confirm">Conf. Contraseña</label>
+                    <input type="password" id="reg-confirm" name="password_confirmation" required>
+                </div>
+                <div class="btn-container">
+                    <button type="submit" class="btn">Registrar</button>
+                </div>
+            </form>
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>

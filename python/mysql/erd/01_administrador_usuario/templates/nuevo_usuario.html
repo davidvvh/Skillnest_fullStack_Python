@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuevo Usuario</title>
+    <link rel="stylesheet" href="../static/css/nuevo_usuario.css">
+</head>
+<body>
+    <div class="page-container">
+        <main class="form-container">
+            <h2>Nuevo Usuario</h2>
+            <form action="#" method="POST">
+                <div class="form-group">
+                    <label for="user-name">Nombre</label>
+                    <input type="text" id="user-name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="user-email">E-mail</label>
+                    <input type="email" id="user-email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="user-password">Contraseña</label>
+                    <input type="password" id="user-password" name="password" required>
+                </div>
+                <div class="form-group">
+                    <label for="user-confirm">Conf. Contraseña</label>
+                    <input type="password" id="user-confirm" name="password_confirmation" required>
+                </div>
+                <div class="form-group">
+                    <label for="user-type">Tipo de Usuario</label>
+                    <div class="select-wrapper">
+                        <select id="user-type" name="user_type">
+                            <option value="admin" selected>Administrador</option>
+                            <option value="user">Usuario</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="btn-container">
+                    <button type="submit" class="btn-submit">Crear</button>
+                </div>
+            </form>
+        </main>
+    </div>
+</body>
+</html>

@@ -1,0 +1,116 @@
+/* Configuración General */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Contenedor Principal (Dos Columnas) */
+.container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 900px;
+    gap: 80px;
+}
+
+/* Secciones de los Formularios */
+.form-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 30px;
+    color: #000000;
+}
+
+/* Filas del Formulario (Label + Input) */
+.form-group {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+label {
+    font-size: 1rem;
+    color: #000000;
+    flex: 1;
+    padding-right: 15px;
+}
+
+input {
+    flex: 2;
+    padding: 10px;
+    border: 2px solid #000000;
+    border-radius: 4px;
+    font-size: 1rem;
+    outline: none;
+    background-color: #ffffff;
+}
+
+/* Botones con el estilo de sombra "hard-shadow" del boceto */
+.btn {
+    background-color: #ffffff;
+    color: #000000;
+    border: 2px solid #000000;
+    padding: 10px 24px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 4px;
+    box-shadow: 4px 4px 0px #000000; /* Recrea el efecto de sombra del dibujo */
+    transition: all 0.1s ease;
+}
+
+/* Efecto Click en el botón */
+.btn:active {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0px #000000;
+}
+
+/* Alineación específica para el botón de registro a la derecha */
+.btn-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+}
+
+/* Responsividad para pantallas móviles */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        gap: 50px;
+    }
+    
+    .form-group {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    label {
+        margin-bottom: 5px;
+    }
+    
+    input {
+        width: 100%;
+    }
+    
+    .btn-container {
+        justify-content: flex-start;
+    }
+}

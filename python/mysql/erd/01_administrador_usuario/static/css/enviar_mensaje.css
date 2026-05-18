@@ -1,0 +1,154 @@
+/* Configuración General */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+/* Contenedor del contenido del muro/chat */
+.chat-container {
+    width: 100%;
+    max-width: 650px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Títulos e Interlineado */
+.main-title {
+    font-size: 2.8rem;
+    font-weight: bold;
+    color: #000000;
+    margin-bottom: 10px;
+}
+
+.section-title {
+    font-size: 1.6rem;
+    font-style: italic;
+    font-weight: 600;
+    color: #000000;
+    margin-bottom: 15px;
+}
+
+.comments-title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #000000;
+    margin-top: 25px;
+    margin-bottom: 15px;
+}
+
+/* Grupos de entrada de texto + botón en línea */
+.input-group {
+    display: flex;
+    gap: 15px;
+    width: 100%;
+    margin-bottom: 25px;
+}
+
+.input-group input {
+    flex: 1;
+    padding: 10px 14px;
+    border: 2px solid #000000;
+    border-radius: 4px;
+    font-size: 1rem;
+    color: #000000;
+    outline: none;
+    background-color: #ffffff;
+}
+
+.input-group input::placeholder {
+    color: #555555;
+    font-style: italic;
+}
+
+/* Botón con estilo wireframe rígido */
+.btn-solid {
+    background-color: #ffffff;
+    color: #000000;
+    border: 2px solid #000000;
+    padding: 0 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: 4px 4px 0px #000000;
+    transition: transform 0.1s, box-shadow 0.1s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-solid:active {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0px #000000;
+}
+
+/* Enlaces de Metadatos (Azul sutil subrayado) */
+.meta-link {
+    color: #1a73e8;
+    text-decoration: underline;
+    font-size: 0.95rem;
+    font-weight: 500;
+    display: inline-block;
+    margin-bottom: 8px;
+}
+
+.meta-link:hover {
+    color: #0b57d0;
+}
+
+/* Párrafos de contenido */
+.body-text {
+    font-size: 1rem;
+    color: #000000;
+    line-height: 1.4;
+    text-align: justify;
+}
+
+/* Contenedores de mensajes y comentarios */
+.message-block {
+    margin-bottom: 20px;
+}
+
+.comments-section {
+    display: flex;
+    flex-direction: column;
+}
+
+.comment-block {
+    margin-left: 25px; /* Sangría a la derecha para denotar que pertenece al mensaje principal */
+    margin-bottom: 25px;
+}
+
+/* Ajustes para dispositivos móviles */
+@media (max-width: 480px) {
+    .main-title {
+        font-size: 2.2rem;
+    }
+
+    .comments-title {
+        font-size: 1.7rem;
+    }
+
+    .input-group {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .btn-solid {
+        padding: 12px;
+        width: 100%;
+    }
+
+    .comment-block {
+        margin-left: 15px; /* Reduce la sangría en pantallas pequeñas */
+    }
+}
