@@ -118,3 +118,9 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
 -- Insertar datos en tablas
 USE sistema_mensajes;
+INSERT INTO roles(nombre_rol, descripcion_rol) 
+VALUES ("admin", "control total")
+INSERT INTO roles() VALUES ()
+INSERT INTO roles() VALUES ()
+INSERT INTO roles() VALUES ()
+INSERT INTO roles() VALUES ()
