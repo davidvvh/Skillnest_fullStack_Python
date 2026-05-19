@@ -8,28 +8,28 @@ SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
 
 -- -----------------------------------------------------
--- Schema mydb
+-- Schema sistema_mensajes
 -- -----------------------------------------------------
 
 -- -----------------------------------------------------
--- Schema mydb
+-- Schema sistema_mensajes
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `mydb` DEFAULT CHARACTER SET utf8 ;
-USE `mydb` ;
+CREATE SCHEMA IF NOT EXISTS `sistema_mensajes` DEFAULT CHARACTER SET utf8 ;
+USE `sistema_mensajes` ;
 
 -- -----------------------------------------------------
--- Table `mydb`.`roles`
+-- Table `sistema_mensajes`.`roles`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`roles` (
-    `id_rol` INT NOT NULL AUTO_INCREMENT,
-    `nombre_rol` VARCHAR(50) NOT NULL,
-    `descripcion_rol` VARCHAR(300) NOT NULL,
-    `created_at` DATETIME DEFAULT CURRENT_TIMESTAMP,
-    `updated_at` DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    `created_by` INT NULL,
-    `deleted` TINYINT(1) DEFAULT 0,
-    -- Borrado logico - no se borra el registro
-    PRIMARY KEY (`id_rol`))
+CREATE TABLE IF NOT EXISTS `sistema_mensajes`.`roles` (
+  `id_rol` INT NOT NULL AUTO_INCREMENT,
+  `nombre_rol` VARCHAR(50) NOT NULL,
+  `descripcion_rol` VARCHAR(300) NOT NULL,
+  `created_at` DATETIME DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `created_by` INT NULL,
+  `deleted` TINYINT(1) DEFAULT 0,
+  -- Borrado logico - no se borra el registro fisicamente
+  PRIMARY KEY (`id_rol`))
 ENGINE = InnoDB;
 
 -- DIEGO MUERE- DEBEMOS SACARLO DEL SISTEMA. BORRADO FISICO DELETE FROM USUARIO
@@ -39,40 +39,40 @@ ENGINE = InnoDB;
 -- PERO NO SALE DEL SISTEMA.
 
 -- -----------------------------------------------------
--- Table `mydb`.`usuarios`
+-- Table `sistema_mensajes`.`usuarios`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`usuarios` (
-    `id_usuario` INT NOT NULL AUTO_INCREMENT,
-    `nombre` VARCHAR(100) NOT NULL,
-    `email` VARCHAR(150) NOT NULL,
-    `password_hash` VARCHAR(255) NOT NULL,
-    `created_at` DATETIME NULL,
-    `updated_at` DATETIME NULL,
-    `created_by` INT NULL,
-    `deleted` TINYINT(1) NULL,
-    `id_rol` INT NOT NULL,
-    PRIMARY KEY (`id_usuario`),
-    UNIQUE INDEX `nombre_UNIQUE` (`nombre` ASC) VISIBLE,
-    UNIQUE INDEX `email_UNIQUE` (`email` ASC) VISIBLE,
+CREATE TABLE IF NOT EXISTS `sistema_mensajes`.`usuarios` (
+  `id_usuario` INT NOT NULL AUTO_INCREMENT,
+  `nombre` VARCHAR(100) NOT NULL,
+  `email` VARCHAR(150) NOT NULL,
+  `password_hash` VARCHAR(255) NOT NULL,
+  `created_at` DATETIME DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `created_by` INT NULL,
+  `deleted` TINYINT(1) DEFAULT 0,
+  `id_rol` INT NOT NULL,
+  PRIMARY KEY (`id_usuario`),
+  UNIQUE INDEX `nombre_UNIQUE` (`nombre` ASC) VISIBLE,
+  UNIQUE INDEX `email_UNIQUE` (`email` ASC) VISIBLE,
   INDEX `fk_usuarios_roles1_idx` (`id_rol` ASC) VISIBLE,
   CONSTRAINT `fk_usuarios_roles1`
-    FOREIGN KEY (`id_rol`)
-    REFERENCES `mydb`.`roles` (`id_rol`)
+  FOREIGN KEY (`id_rol`)
+  REFERENCES `sistema_mensajes`.`roles` (`id_rol`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`mensajes`
+-- Table `sistema_mensajes`.`mensajes`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`mensajes` (
+CREATE TABLE IF NOT EXISTS `sistema_mensajes`.`mensajes` (
   `id_mensaje` INT NOT NULL AUTO_INCREMENT,
   `contenido` TEXT NOT NULL,
-  `created_at` DATETIME NULL,
-  `updated_at` DATETIME NULL,
+  `created_at` DATETIME DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `created_by` INT NULL,
-  `deleted` TINYINT(1) NULL,
+  `deleted` TINYINT(1) DEFAULT 0,
   `emisor` INT NOT NULL,
   `receptor` INT NOT NULL,
   PRIMARY KEY (`id_mensaje`),
@@ -80,33 +80,33 @@ CREATE TABLE IF NOT EXISTS `mydb`.`mensajes` (
   INDEX `fk_mensajes_usuarios1_idx` (`receptor` ASC) VISIBLE,
   CONSTRAINT `fk_mensajes_usuarios`
     FOREIGN KEY (`emisor`)
-    REFERENCES `mydb`.`usuarios` (`id_usuario`)
+    REFERENCES `sistema_mensajes`.`usuarios` (`id_usuario`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_mensajes_usuarios1`
     FOREIGN KEY (`receptor`)
-    REFERENCES `mydb`.`usuarios` (`id_usuario`)
+    REFERENCES `sistema_mensajes`.`usuarios` (`id_usuario`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`comentarios`
+-- Table `sistema_mensajes`.`comentarios`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`comentarios` (
+CREATE TABLE IF NOT EXISTS `sistema_mensajes`.`comentarios` (
   `id_comentario` INT NOT NULL AUTO_INCREMENT,
   `contenido` TEXT NOT NULL,
-  `created_at` DATETIME NULL,
-  `updated_at` DATETIME NULL,
+  `created_at` DATETIME DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `created_by` INT NULL,
-  `deleted` TINYINT(1) NULL,
+  `deleted` TINYINT(1) DEFAULT 0,
   `id_usuario` INT NOT NULL,
   PRIMARY KEY (`id_comentario`),
   INDEX `fk_comentarios_usuarios1_idx` (`id_usuario` ASC) VISIBLE,
   CONSTRAINT `fk_comentarios_usuarios1`
     FOREIGN KEY (`id_usuario`)
-    REFERENCES `mydb`.`usuarios` (`id_usuario`)
+    REFERENCES `sistema_mensajes`.`usuarios` (`id_usuario`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
