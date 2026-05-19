@@ -3,28 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicio de Sesión y Registro - Skillnest</title>
+    <title>Inicio de Sesión y Registro</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="../01_administrador_usuario/static/css/style.css">
 </head>
 <body>
     <main class="container">
         <section class="form-section">
             <h2>Inicio de Sesión</h2>
-            <form action="#" method="POST">
+            <form id="loginForm" action="#" method="POST">
                 <div class="form-group">
                     <label for="login-email">E-mail</label>
                     <input type="email" id="login-email" name="email" required>
                 </div>
-                <div class="form-group">
+                <div class="form-group" style="position: relative;">
                     <label for="login-password">Contraseña</label>
                     <input type="password" id="login-password" name="password" required>
+                    <i class="far fa-eye" id="togglePassword" style="position: absolute; right: 10px; top: 38px; cursor: pointer;"></i>
                 </div>
                 <button type="submit" class="btn">Iniciar Sesión</button>
             </form>
         </section>
         <section class="form-section">
             <h2>Registro</h2>
-            <form action="#" method="POST">
+            <form id="registerForm" action="#" method="POST">
                 <div class="form-group">
                     <label for="reg-name">Nombre</label>
                     <input type="text" id="reg-name" name="name" required>
@@ -33,20 +35,19 @@
                     <label for="reg-email">E-mail</label>
                     <input type="email" id="reg-email" name="email" required>
                 </div>
-                <div class="form-group">
+                <div class="form-group" style="position: relative;">
                     <label for="reg-password">Contraseña</label>
                     <input type="password" id="reg-password" name="password" required>
+                    <i class="far fa-eye" id="toggleRegPassword" style="position: absolute; right: 10px; top: 38px; cursor: pointer;"></i>
                 </div>
                 <div class="form-group">
                     <label for="reg-confirm">Conf. Contraseña</label>
-                    <input type="password" id="reg-confirm" name="password_confirmation" required>
+                    <input type="password" id="reg-confirm" name="confirm_password" required>
                 </div>
-                <div class="btn-container">
-                    <button type="submit" class="btn">Registrar</button>
-                </div>
+                <button type="submit" class="btn">Registrar</button>
             </form>
         </section>
     </main>
-    <script src="script.js"></script>
+    <script src="./static/js/script.js"></script>
 </body>
 </html>
