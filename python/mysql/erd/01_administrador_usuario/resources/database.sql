@@ -119,8 +119,71 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 -- Insertar datos en tablas
 USE sistema_mensajes;
 INSERT INTO roles(nombre_rol, descripcion_rol) 
-VALUES ("admin", "control total")
-INSERT INTO roles() VALUES ()
-INSERT INTO roles() VALUES ()
-INSERT INTO roles() VALUES ()
-INSERT INTO roles() VALUES ()
+VALUES ("admin", "control total"),
+("usuario comun", "permisos administrativos basicos"),
+("invitado", "usuario temporal con permisos limitados");
+INSERT INTO usuarios(nombre, password_hash, email, id_rol) 
+VALUES ("randy123", "randy123", "randy@gmail.com", 2),
+("akon123", "akon123", "akon@gmail.com", 1),
+("tete", "tete", "tete@gmail.com", 2),
+("anne", "anne", "anne@gmail.com", 3),
+("martin", "martin", "martin@gmail.com", 3);
+SELECT * from roles;
+SELECT * from usuarios;
+INSERT INTO comentarios (contenido, created_by, id_usuario) 
+VALUES("hola este es un comentario", 1, 1),
+("hola soy el akon admin", 2, 2),
+("hola soy la tete", 3, 3);
+SELECT * from comentarios;
+
+INSERT INTO mensajes(contenido, created_by, id_usuario)
+VALUES ("hola martin, eres el mejor", 1, 1, 5),
+("hola tete, ¿hiciste la tarea?", 4, 4, 3),
+("hola randy, mañana es feriado", 3, 3, 1);
+
+SELECT * from mensajes;
+-- CONSULTAS SIMPLES CON CONDICION
+-- WHERE EN MYSQL
+-- MOSTRAR MENSAJES DONDE EL REMITENTE SEA RANDY
+SELECT contenido, emisor
+from mensajes
+WHERE emisor = 1; -- WHERE aplica condicion sobre consulta
+
+-- MOSTRAR USUARIOS QUE ESTAN ACTIVOS (DELETED 0)
+SELECT nombre, email, id_rol, deleted
+from usuarios
+WHERE deleted = 0;
+
+-- MOSTRAR USUARIOS QUE ESTAN ELIMINADOS (DELETED 1)
+SELECT nombre, email, id_rol, deleted
+from usuarios
+WHERE deleted = 1;
+
+-- BORRAR UN USUARIO
+UPDATE usuarios
+SET deleted = 1
+WHERE id_usuario = 2;
+
+-- RECUPERAR UN USUARIO
+UPDATE usuarios
+SET deleted = 0
+WHERE id_usuario = 1;
+-- TAREA
+-- MOSTRAR ROLES DE USUARIO
+SELECT nombre_rol, descripcion_rol
+from roles
+WHERE deleted = 0;
+
+-- ELIMINAR 2 ROLES
+UPDATE roles
+SET  deleted = 1
+WHERE id_rol IN (2, 3);
+
+-- RECUPERAR 1 ROL DE USUARIO
+UPDATE roles
+SET deleted = 0
+WHERE id_rol = 2;
+
+SELECT nombre_rol, descripcion_rol
+from roles
+WHERE deleted = 0;
