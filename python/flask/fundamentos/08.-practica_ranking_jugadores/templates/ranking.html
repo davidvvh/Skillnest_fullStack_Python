@@ -51,20 +51,20 @@
     <div class="ranking">
         <ul>
             {% for jugador in jugadores %}
-            <li
-            {% if loop.index == 1 %}
-                class="lider"
-            {% endif%}
-            >
-                <span>
-                    {{ loop.index}}.
-                    {{jugador.nombre}}
-                </span>
-                <span>
-                    {{jugador.puntaje }} pts
-                </span>
-            </li>
-            {% endfor %}
+                <li
+                {% if loop.index == 1 %}
+                    class="lider"
+                {% endif%}
+                >
+                    <span>
+                        {{ loop.index}}.
+                        {{jugador.nombre}}
+                    </span>
+                    <span>
+                        {{jugador.puntaje }} pts
+                    </span>
+                </li>
+                {% endfor %}
         </ul>
     </div>
     <h3>
