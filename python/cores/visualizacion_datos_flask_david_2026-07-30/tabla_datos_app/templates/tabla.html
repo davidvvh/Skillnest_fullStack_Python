@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plataformas Digitales</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+<body>
+    <!--logo y titulo-->
+    <div class="container py-4">
+        <div class="d-flex align-items-center gap-3 mb-3">
+            <i class="bi bi-table fs-2 text-primary"></i>
+            <h1 class="h4 fw-bold mb-0">Plataformas Digitales</h1>
+            <div>
+                <p class="text-secondary small mb-0">Visualización de datos de las principales plataformas digitales</p>
+            </div>
+        </div>
+        <!--barra superior de filtros-->
+        <div class="bg-light p-3 rounded-3 mb-4 border">
+            <div class="d-flex align-items-center gap-2 mb-2">
+                <i class="bi bi-funnel-fill text-secondary"></i>
+                <span class="fw-semibold small text-uppercase text-secondary">Filtros y Ordenamiento</span>
+            </div>
+            <!--seleccion de paises-->
+            <div class="row g-2 align-items-end">
+                <div class="col-md-4 col-6">
+                    <label class="form-label small fw-semibold text-secondary mb-0">Filtrar por país:</label>
+                    <select class="form-select form-select-sm">
+                        <option selected>Todos los países</option>
+                        <option>EE.UU.</option>
+                        <option>Suecia</option>
+                        <option>China</option>
+                    </select>
+                </div>
+                <!--organizar por: -->
+                <div class="col-md-3 col-6">
+                    <label class="form-label small fw-semibold text-secondary mb-0">Ordenar por:</label>
+                    <select class="form-select form-select-sm">
+                        <option selected>Nombre</option>
+                        <option>Usuarios</option>
+                        <option>Año Fundación</option>
+                        <option>País</option>
+                    </select>
+                </div>
+                <!--seleccion de direccion-->
+                <div class="col-md-3 col-6">
+                    <label class="form-label small fw-semibold text-secondary mb-0">Dirección:</label>
+                    <select class="form-select form-select-sm">
+                        <option selected>Ascendente</option>
+                        <option>Descendente</option>
+                    </select>
+                </div>
+                <!--boton de aplicar-->
+                <div class="col-md-2 col-6 text-md-end">
+                    <button class="btn btn-primary btn-sm w-100 w-md-auto"><i class="bi bi-arrow-repeat me-1"></i>Aplicar</button>
+                </div>
+            </div>
+        </div>
+        <!--barra superior de la tabla-->
+        <div class="table-responsive">
+            <table class="table table-hover align-middle shadow-sm rounded-3 overflow-hidden">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Usuarios</th>
+                        <th>Año Fundación</th>
+                        <th>País</th>
+                        <th class="text-center">Detalles</th>
+                    </tr>
+                </thead>
+                <!--discord-->
+                <tbody>
+                    <tr>
+                        <td>
+                            <i class="bi bi-discord"></i>
+                            <span class="fw-semibold">Discord</span>
+                        </td>
+                        <td>250M</td>
+                        <td>2015</td>
+                        <td>EE.UU.</td>
+                        <td><button class="text-center"><i class="bi bi-info-circle text-info fs-5"></i></td>
+                    </tr>
+                    <!--instagram-->
+                    <tr>
+                        <td>
+                            <i class="bi bi-instagram"></i>
+                            <span class="fw-semibold">Instagram</span>
+                        </td>
+                        <td>2.35B</td>
+                        <td>2010</td>
+                        <td>EE.UU.</td>
+                        <td><button class="text-center"><i class="bi bi-info-circle text-info fs-5"></i></td>
+                    </tr>
+                    <!--netflix-->
+                    <tr>
+                        <td>
+                            <img src="https://img.icons8.com/?size=100&id=ugS0yPiF1NrW&format=png&color=4D4D4D" alt="#" width="25px">
+                            <span class="fw-semibold">Netflix</span>
+                        </td>
+                        <td>247M</td>
+                        <td>1997</td>
+                        <td>EE.UU.</td>
+                        <td><button class="text-center"><i class="bi bi-info-circle text-info fs-5"></i></td>
+                    </tr>
+                    <!--spotify-->
+                    <tr>
+                        <td>
+                            <i class="bi bi-spotify"></i>
+                            <span class="fw-semibold">Spotify</span>
+                        </td>
+                        <td>515M</td>
+                        <td>2006</td>
+                        <td>Suecia</td>
+                        <td><button class="text-center"><i class="bi bi-info-circle text-info fs-5"></i></td>
+                    </tr>
+                    <!--tiktok-->
+                    <tr>
+                        <td>
+                            <i class="bi bi-tiktok"></i>
+                            <span class="fw-semibold">TikTok</span>
+                        </td>
+                        <td>1.7B</td>
+                        <td>2016</td>
+                        <td>China</td>
+                        <td><button class="text-center"><i class="bi bi-info-circle text-info fs-5"></i></td>
+                    </tr>
+                    <!--twitch-->
+                    <tr>
+                        <td>
+                            <i class="bi bi-twitch"></i>
+                            <span class="fw-semibold">Twitch</span>
+                        </td>
+                        <td>140M</td>
+                        <td>2011</td>
+                        <td>EE.UU.</td>
+                        <td><button class="text-center"><i class="bi bi-info-circle text-info fs-5"></i></td>
+                    </tr>
+                    <!--youtube-->
+                    <tr>
+                        <td>
+                            <i class="bi bi-youtube"></i>
+                            <span class="fw-semibold">YouTube</span>
+                        </td>
+                        <td>2.5B</td>
+                        <td>2005</td>
+                        <td>EE.UU.</td>
+                        <td><button class="text-center"><i class="bi bi-info-circle text-info fs-5"></i></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!--final-->
+        <div class="d-flex flex-wrap justify-content-between align-items-center mt-3 text-secondary small">
+            <span><i class="bi bi-list-ul me-1"></i> Mostrando 7 plataformas</span>
+            <span class="text-muted fst-italic">Visualización de datos desarrollada con Flask y Bootstrap.</span>
+            <span class="text-muted fst-italic">Los datos mostrados son ficticios para fines educativos.</span>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

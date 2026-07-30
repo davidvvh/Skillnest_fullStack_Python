@@ -1,0 +1,110 @@
+/* style.css - Personalización adicional sobre Bootstrap */
+
+/* Ajustes generales */
+body {
+    background-color: #f1f4f9;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    align-items: center;
+}
+
+/* Encabezado */
+.h4 {
+    color: #0d6efd;
+    align-items: center;
+}
+
+/* Filtros y ordenamiento - caja más limpia */
+.bg-light {
+    background-color: #f8fafc !important;
+    border: 1px solid #e2e8f0 !important;
+}
+
+/* Tabla - bordes redondeados y sombra */
+.table {
+    border-collapse: separate;
+    border-spacing: 0;
+    background-color: #ffffff;
+}
+
+.table thead th {
+    border-bottom: 2px solid #1a202c;
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    padding: 14px 16px;
+}
+
+.table tbody td {
+    padding: 12px 16px;
+    border-bottom: 1px solid #edf2f7;
+    vertical-align: middle;
+}
+
+.table tbody tr:last-child td {
+    border-bottom:#1a202c;
+}
+
+.table tbody tr:hover {
+    background-color: #f7fafc;
+}
+
+/* Ícono de detalle (info circle) */
+.bi-info-circle {
+    color: #0dcaf0;
+    cursor: default;
+    transition: transform 0.15s ease;
+}
+
+.bi-info-circle:hover {
+    transform: scale(1.2);
+}
+
+/* Contador y créditos */
+.text-secondary.small span,
+.text-muted {
+    font-size: 0.8rem;
+}
+
+/* Ajustes responsive */
+@media (max-width: 576px) {
+    .container {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+    .table thead th,
+    .table tbody td {
+        padding: 8px 10px;
+        font-size: 0.8rem;
+    }
+
+    .bg-light .row .col-6 {
+        padding-right: 4px;
+        padding-left: 4px;
+    }
+
+    .bg-light .row .col-md-2 {
+        margin-top: 6px;
+    }
+}
+
+/* Mejora en selects de filtros */
+.form-select-sm {
+    font-size: 0.85rem;
+    border-radius: 6px;
+    border-color: #d1d9e6;
+}
+
+.form-select-sm:focus {
+    border-color: #86b7fe;
+    box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.15);
+}
+
+/* Etiquetas de filtros */
+.form-label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: #64748b;
+    letter-spacing: 0.02em;
+}
