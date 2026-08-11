@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mercado de Frutas - Inicio</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-success">
+    <div class="container">
+        <a class="navbar-brand fw-bold" href="{{ url_for('index') }}">
+            <i class="bi bi-apple"></i> Mercado de Frutas
+        </a>
+        <div>
+            <a class="nav-link text-white d-inline me-3" href="{{ url_for('index') }}">Inicio</a>
+            <a class="nav-link text-white d-inline" href="{{ url_for('catalogo') }}">Catálogo</a>
+        </div>
+    </div>
+</nav>
+
+<header class="hero text-center text-white py-5 bg-success bg-gradient">
+    <div class="container">
+        <h1 class="display-4 fw-bold">Frutas Frescas a Tu Puerta</h1>
+        <p class="lead">Selecciona tus frutas favoritas y realiza tu pedido.</p>
+    </div>
+</header>
+
+<form action="{{ url_for('checkout') }}" method="POST">
+    <div class="container my-5">
+        <div class="row">
+            <!-- Selección de Productos -->
+            <div class="col-lg-8 mb-4">
+                <div class="card shadow">
+                    <div class="card-header bg-success text-white">
+                        <h3 class="card-title mb-0">Selecciona tus frutas</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            {% for fruta in frutas %}
+                            <div class="col-md-6 mb-4">
+                                <div class="card h-100 shadow-sm">
+                                    <img src="{{ url_for('static', filename='img/' + fruta.imagen) }}" class="card-img-top p-3" alt="{{ fruta.nombre }}" style="max-height: 180px; object-fit: contain;">
+                                    <div class="card-body">
+                                        <h5 class="card-title fw-bold">{{ fruta.nombre }}</h5>
+                                        <h6 class="text-success fw-bold">${{ fruta.precio }}</h6>
+                                        <p class="card-text text-muted fs-7">{{ fruta.descripcion }}</p>
+                                    </div>
+                                    <div class="card-footer bg-white border-top-0">
+                                        <label class="form-label text-secondary fs-7">Cantidad:</label>
+                                        <input type="number" class="form-control" min="0" value="0" name="{{ fruta.nombre }}">
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Formulario de Cliente -->
+            <div class="col-lg-4">
+                <div class="card shadow sticky-top" style="top: 20px;">
+                    <div class="card-header bg-success text-white">
+                        <h3 class="card-title mb-0">Información de Contacto</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <label class="form-label">Nombre Completo</label>
+                            <input type="text" class="form-control" name="nombre" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Correo Electrónico</label>
+                            <input type="email" class="form-control" name="email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Dirección de Entrega</label>
+                            <textarea class="form-control" rows="3" name="direccion" required></textarea>
+                        </div>
+                        <hr>
+                        <button type="submit" class="btn btn-primary w-100 btn-lg">
+                            <i class="bi bi-cart-fill"></i> Crear Orden
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+</body>
+</html>

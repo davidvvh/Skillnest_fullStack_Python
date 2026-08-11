@@ -1,0 +1,19 @@
+body {
+    background-color: #f8f9fa;
+}
+
+.hero {
+    border-bottom: 5px solid #198754;
+}
+
+.card-img-top {
+    transition: transform 0.2s ease;
+}
+
+.card:hover .card-img-top {
+    transform: scale(1.05);
+}
+
+.fs-7 {
+    font-size: 0.875rem;
+}

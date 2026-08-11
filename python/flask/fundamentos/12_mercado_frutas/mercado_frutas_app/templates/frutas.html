@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mercado de Frutas - Catálogo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-success">
+    <div class="container">
+        <a class="navbar-brand fw-bold" href="{{ url_for('index') }}">
+            <i class="bi bi-apple"></i> Mercado de Frutas
+        </a>
+        <div>
+            <a class="nav-link text-white d-inline me-3" href="{{ url_for('index') }}">Inicio</a>
+            <a class="nav-link text-white d-inline" href="{{ url_for('catalogo') }}">Catálogo</a>
+        </div>
+    </div>
+</nav>
+
+<div class="container my-5">
+    <h1 class="text-center mb-4 fw-bold">Catálogo de Productos</h1>
+    <div class="row">
+        {% for fruta in frutas %}
+        <div class="col-md-4 col-lg-3 mb-4">
+            <div class="card h-100 shadow-sm">
+                <img src="{{ url_for('static', filename='img/' + fruta.imagen) }}" class="card-img-top p-3" alt="{{ fruta.nombre }}" style="max-height: 200px; object-fit: contain;">
+                <div class="card-body text-center">
+                    <h5 class="card-title fw-bold">{{ fruta.nombre }}</h5>
+                    <p class="card-text text-muted fs-7">{{ fruta.descripcion }}</p>
+                    <h5 class="text-success fw-bold">${{ fruta.precio }}</h5>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+</body>
+</html>
