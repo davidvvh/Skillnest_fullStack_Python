@@ -281,3 +281,14 @@ print(f"\nResultados:")
     <script src="../static/js/admin_usuarios.js"></script>
 </body>
 </html>
+
+
+
+
+# ==========================================
+# CONFIGURACIÓN DE BASE DE DATOS LOCAL
+# ==========================================
+MYSQL_HOST=localhost
+MYSQL_USER=root
+MYSQL_PASSWORD=Bora.65536-1
+MYSQL_DATABASE=voluntame_db

@@ -20,7 +20,7 @@ def crear_usuario():
 def mostrar_usuario():
     print("Usuario redirigido")
     print(request.form)
-    return render_template("mostar.html")
+    return render_template("mostrar.html")
 
 if __name__ == "__main__":
     app.run(debug=True)
