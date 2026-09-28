@@ -40,4 +40,5 @@ VALUES
     ("Michi", "Gato", "Negro"),
     ("Luna", "Perro", "Blanco"),
     ("Nala", "Gato", "Naranjo"),
+    ("monda", "conejo", "negro ojo claro"),
     ("Coco", "Conejo", "Blanco");
