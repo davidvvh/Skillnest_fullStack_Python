@@ -18,6 +18,11 @@ class Usuario:
         """
         resultados = connectToMySQL("esquema_usuarios").query_db(query)
         usuarios = []
+        
+        # Validación para evitar error si no hay datos o falla la consulta
+        if not resultados:
+            return usuarios
+
         for usuario in resultados:
             usuarios.append(cls(usuario))
         return usuarios

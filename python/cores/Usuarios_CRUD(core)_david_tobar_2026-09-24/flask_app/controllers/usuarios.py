@@ -2,6 +2,11 @@ from flask_app import app
 from flask import render_template, request, redirect, url_for
 from flask_app.models.usuario import Usuario
 
+# Redirección de la ruta raíz a /usuarios
+@app.route("/")
+def index():
+    return redirect(url_for("usuarios"))
+
 @app.route("/usuarios")
 def usuarios():
     lista_usuarios = Usuario.get_all()
