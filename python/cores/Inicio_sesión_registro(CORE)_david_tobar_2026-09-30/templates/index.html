@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Inicio</title>
+    <style>
+        .container { display: flex; gap: 50px; font-family: sans-serif; }
+        .error { color: red; list-style: none; padding: 0; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Formulario Registro -->
+        <div>
+            <h2>Registro</h2>
+            {% with messages = get_flashed_messages(category_filter=["registro"]) %}
+                {% if messages %}
+                    <ul class="error">
+                    {% for msg in messages %}
+                        <li>{{ msg }}</li>
+                    {% endfor %}
+                    </ul>
+                {% endif %}
+            {% endwith %}
+            <form action="/registro" method="POST">
+                <p><label>Nombre: </label><input type="text" name="nombre"></p>
+                <p><label>Apellido: </label><input type="text" name="apellido"></p>
+                <p><label>E-mail: </label><input type="email" name="email"></p>
+                <p><label>Contraseña: </label><input type="password" name="password"></p>
+                <p><label>Conf. Contraseña: </label><input type="password" name="confirm_password"></p>
+                <button type="submit">Registrar</button>
+            </form>
+        </div>
+
+        <!-- Formulario Inicio de Sesión -->
+        <div>
+            <h2>Inicio de Sesión</h2>
+            {% with messages = get_flashed_messages(category_filter=["login"]) %}
+                {% if messages %}
+                    <ul class="error">
+                    {% for msg in messages %}
+                        <li>{{ msg }}</li>
+                    {% endfor %}
+                    </ul>
+                {% endif %}
+            {% endwith %}
+            <form action="/login" method="POST">
+                <p><label>E-mail: </label><input type="email" name="email"></p>
+                <p><label>Contraseña: </label><input type="password" name="password"></p>
+                <button type="submit">Iniciar Sesión</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
