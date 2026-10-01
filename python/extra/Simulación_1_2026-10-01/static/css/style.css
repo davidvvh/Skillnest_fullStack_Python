@@ -1,0 +1,52 @@
+/* Custom Styles for BookHub */
+
+body {
+    background-color: #f8f9fa;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Card Styling */
+.card {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* Placeholder image in Book Detail */
+.book-placeholder-img {
+    background-color: #e9ecef;
+    border-radius: 6px;
+    min-height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #6c757d;
+}
+
+/* Table Enhancements */
+.table {
+    vertical-align: middle;
+}
+
+.table thead th {
+    font-weight: 600;
+    background-color: #f1f3f5;
+    border-bottom: 2px solid #dee2e6;
+}
+
+/* Flash Messages */
+.alert {
+    font-size: 0.9rem;
+    border-radius: 6px;
+}
+
+/* Form Styles */
+.form-label {
+    font-weight: 500;
+    color: #495057;
+}
+
+/* Custom Scroll / List for Favorites users */
+.list-group-item {
+    border-color: #f1f3f5;
+}

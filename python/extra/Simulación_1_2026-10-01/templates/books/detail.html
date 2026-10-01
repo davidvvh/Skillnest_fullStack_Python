@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="card shadow-sm p-4 mb-4">
+    <div class="row">
+        <div class="col-md-3 text-center bg-light d-flex align-items-center justify-content-center rounded" style="min-height: 180px;">
+            <i class="bi bi-image text-secondary display-1"></i>
+        </div>
+        <div class="col-md-9">
+            <h3>{{ book.title }}</h3>
+            <p class="mb-1"><strong>Autor:</strong> {{ book.author }}</p>
+            <p class="mb-1"><strong>Género:</strong> {{ book.genre }}</p>
+            <p class="mb-1"><strong>Publicado por:</strong> {{ book.published_by }}</p>
+            <p class="mb-3"><strong>Fecha:</strong> {{ book.publication_date }}</p>
+
+            {% if not is_fav %}
+            <form action="{{ url_for('book.add_favorite', book_id=book.id) }}" method="POST">
+                <button type="submit" class="btn btn-outline-dark"><i class="bi bi-heart me-1"></i> Agregar a Favoritos</button>
+            </form>
+            {% endif %}
+        </div>
+    </div>
+    <div class="mt-4">
+        <p><strong>Descripción:</strong> {{ book.description }}</p>
+    </div>
+</div>
+
+<div class="card shadow-sm p-4 mb-4">
+    <h5 class="mb-3">Usuarios que agregaron este libro a favoritos ({{ book.favorites_count }})</h5>
+    <ul class="list-group list-group-flush">
+        {% for user in fav_users %}
+        <li class="list-group-item d-flex align-items-center">
+            <i class="bi bi-person-circle fs-4 me-2"></i> {{ user.first_name }} {{ user.last_name }}
+        </li>
+        {% else %}
+        <li class="list-group-item text-muted">Nadie ha agregado este libro a favoritos aún.</li>
+        {% endfor %}
+    </ul>
+</div>
+
+<a href="{{ url_for('book.dashboard') }}" class="text-decoration-none"><i class="bi bi-arrow-left"></i> Volver a Mis Libros</a>
+{% endblock %}

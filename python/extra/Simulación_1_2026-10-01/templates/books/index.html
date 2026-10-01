@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h2>Mis Libros</h2>
+    <a href="{{ url_for('book.create') }}" class="btn btn-primary">+ Nuevo Libro</a>
+</div>
+
+{% with messages = get_flashed_messages(category_filter=['dashboard_error']) %}
+    {% if messages %}
+        {% for msg in messages %}
+            <div class="alert alert-warning">{{ msg }}</div>
+        {% endfor %}
+    {% endif %}
+{% endwith %}
+
+<table class="table table-bordered bg-white shadow-sm align-middle">
+    <thead class="table-light">
+        <tr>
+            <th>Título</th>
+            <th>Autor</th>
+            <th>Género</th>
+            <th>Fecha</th>
+            <th>Favoritos</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for book in my_books %}
+        <tr>
+            <td>{{ book.title }}</td>
+            <td>{{ book.author }}</td>
+            <td>{{ book.genre }}</td>
+            <td>{{ book.publication_date }}</td>
+            <td>{{ book.favorites_count }}</td>
+            <td>
+                <a href="{{ url_for('book.detail', book_id=book.id) }}" class="text-decoration-none me-2">Ver</a>
+                <a href="{{ url_for('book.edit', book_id=book.id) }}" class="text-decoration-none me-2">Editar</a>
+                <form action="{{ url_for('book.delete', book_id=book.id) }}" method="POST" class="d-inline" onsubmit="return confirm('¿Eliminar este libro?');">
+                    <button type="submit" class="btn btn-link text-danger p-0 border-0 align-baseline">Borrar</button>
+                </form>
+            </td>
+        </tr>
+        {% else %}
+        <tr><td colspan="6" class="text-center text-muted">No has registrado ningún libro aún.</td></tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<h2 class="mt-5 mb-3">Libros de la Comunidad</h2>
+<table class="table table-bordered bg-white shadow-sm align-middle">
+    <thead class="table-light">
+        <tr>
+            <th>Título</th>
+            <th>Autor</th>
+            <th>Género</th>
+            <th>Publicado por</th>
+            <th>Favoritos</th>
+            <th>Acción</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for book in community_books %}
+        <tr>
+            <td>{{ book.title }}</td>
+            <td>{{ book.author }}</td>
+            <td>{{ book.genre }}</td>
+            <td>{{ book.author_user }}</td>
+            <td>{{ book.favorites_count }}</td>
+            <td>
+                <a href="{{ url_for('book.detail', book_id=book.id) }}" class="text-decoration-none">Ver</a>
+            </td>
+        </tr>
+        {% else %}
+        <tr><td colspan="6" class="text-center text-muted">No hay libros registrados por otros usuarios.</td></tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
