@@ -3,8 +3,17 @@ USE donaciones_db;
 
 CREATE TABLE IF NOT EXISTS usuarios (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    nombre VARCHAR() NOT NULL,
-    apellido VARCHAR() NOT NULL,
-    email VARCHAR() NOT NULL UNIQUE,
-    password VARCHAR() NOT NULL,
+    nombre VARCHAR(100) NOT NULL,
+    apellido VARCHAR(100) NOT NULL,
+    email VARCHAR(150) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    created_at DATETIME DEFAULT NOW(),
+    updated_at DATETIME DEFAULT NOW() ON UPDATE NOW()
+);
+
+CREATE TABLE IF NOT EXISTS peluches (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    descripcion TEXT NOT NULL,
+    visitas INT DEFAULT 0,
 );
