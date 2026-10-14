@@ -1,0 +1,39 @@
+cinepedia_app/
+│
+├── .env                    # Credenciales locales (Ignorado por Git)
+├── .env.example            # Plantilla para desarrollo
+├── .gitignore              # Ignora .env, resources/, carpetas virtuales, etc.
+├── requirements.txt        # Dependencias del proyecto
+├── server.py               # Punto de entrada y arranque de Flask
+│
+├── resources/              # Ignorado por Git según requerimiento
+│   └── db/
+│       ├── schema_cinepedia.sql    # Script de creación de BD con comentarios
+│       └── ERD_CinePedia.png       # Imagen del Diagrama Entidad-Relación
+│
+└── flask_app/
+    ├── __init__.py         # Inicialización de la app y carga de dotenv
+    │
+    ├── config/
+    │   └── mysqlconnection.py # Conexión a la base de datos MySQL con env vars
+    │
+    ├── controllers/
+    │   ├── users.py        # Rutas de login, registro y logout
+    │   ├── movies.py       # Rutas CRUD de películas
+    │   └── comments.py     # Rutas de gestión de comentarios
+    │
+    ├── models/
+    │   ├── user.py         # Modelo de Usuario con validaciones
+    │   ├── movie.py        # Modelo de Película con validaciones y unicidad
+    │   └── comment.py      # Modelo de Comentario y restricciones
+    │
+    ├── static/
+    │   └── css/
+    │       └── style.css   # Hojas de estilo generales
+    │
+    └── templates/
+        ├── index.html      # Página de Login / Registro
+        ├── dashboard.html  # Lista general de películas
+        ├── new_movie.html  # Formulario de creación
+        ├── edit_movie.html # Formulario de edición
+        └── show_movie.html # Detalle de película y sección de comentarios
