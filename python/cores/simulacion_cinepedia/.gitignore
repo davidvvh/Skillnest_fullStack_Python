@@ -1,0 +1,36 @@
+#entornos virtuales
+venv/
+env/
+.venv/
+ENV/
+
+#variables de entorno con claves y contraseñas
+.env
+.env.*
+!.env.example
+
+#exclusión de la carpeta resources
+resources/
+
+#archivos compilados
+__pycache__/
+*.py[cod]
+*$py.class
+
+#paquetes distribuidos
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+*.eggs-info/
+
+#archivos del sistema y editores
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+#logs del sistema
+*.log
