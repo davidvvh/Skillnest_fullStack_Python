@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>CinePedia - {{ movie.title }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>{{ movie.title }}</h1>
+        <div>
+            <a href="/cine">Inicio</a> | 
+            <a href="/logout">Cerrar Sesión</a>
+        </div>
+    </header>
+    <div>
+        <p><strong>Publicado por:</strong> {{ movie.creator_name }}</p>
+        <p><strong>Director:</strong> {{ movie.director }}</p>
+        <p><strong>Fecha:</strong> {{ movie.release_date }}</p>
+        <p><strong>Sinopsis:</strong> {{ movie.synopsis }}</p>
+    </div>
+    <hr>
+    <!-- BONUS: Permite agregar comentarios si NO es el creador de la película -->
+    {% if movie.user_id != session['user_id'] %}
+        <form action="/cine/comentar" method="POST">
+            <input type="hidden" name="movie_id" value="{{ movie.id }}">
+            <input type="text" name="content" placeholder="Escribe un comentario..." style="width: 300px;" required>
+            <button type="submit">Enviar</button>
+        </form>
+    {% else %}
+        <p><em>(Un usuario no puede comentar su propia película)</em></p>
+    {% endif %}
+    <div style="margin-top: 20px;">
+        {% for comment in comments %}
+            <div style="border: 1px solid #ccc; padding: 10px; margin-bottom: 10px; width: 400px;">
+                <p><strong>{{ comment.author_name }}</strong></p>
+                <p>{{ comment.content }}</p>
+                {% if comment.user_id == session['user_id'] %}
+                    <a href="/cine/comentario/eliminar/{{ comment.id }}/{{ movie.id }}" style="color: red;">Borrar</a>
+                {% endif %}
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

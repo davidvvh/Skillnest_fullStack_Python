@@ -58,4 +58,21 @@ class usuario:
 
         #formato correcto de e-mail valido[cite: 1]
         if not EMAIL_REGEX.match(data.get('email', '')):
-            pass
+            flash("el formato de correo es invalido", "register")
+            is_valid = False
+
+        #verificar en la base de datos si el correo es unico[cite: 1]
+        if usuario.get_by_email({'email': data.get('email', '')}):
+            flash("este correo ya esta registrado", "register")
+            is_valid = False
+
+        #verificar y validar largo e igualdad de la contraseña con confirmacion[cite: 1]
+        if len(data.get('password', '')) < 8:
+            flash("la contraseña debe contener min 8 caracteres", "register")
+            is_valid = False
+
+        if data.get('password') != data.get('confirm_password'):
+            flash("ambas contraseñas no tienen similitud", "register")
+            is_valid = False
+
+        return is_valid

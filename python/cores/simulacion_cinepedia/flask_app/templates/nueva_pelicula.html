@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>CinePedia - Nueva Película</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Nueva Película</h1>
+        <div>
+            <a href="/cine">Inicio</a> | 
+            <a href="/logout">Cerrar Sesión</a>
+        </div>
+    </header>
+    {% with messages = get_flashed_messages(category_filter=["movie"]) %}
+        {% if messages %}
+            {% for msg in messages %}
+                <p class="error-msg">{{ msg }}</p>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    <form action="/cine/crear" method="POST">
+        <p>
+            <label>Nombre de Peli:</label><br>
+            <input type="text" name="title" value="{{ session.get('form_data', {}).get('title', '') }}">
+        </p>
+        <p>
+            <label>Director:</label><br>
+            <input type="text" name="director" value="{{ session.get('form_data', {}).get('director', '') }}">
+        </p>
+        <p>
+            <label>Fecha Estreno:</label><br>
+            <input type="date" name="release_date" value="{{ session.get('form_data', {}).get('release_date', '') }}">
+        </p>
+        <p>
+            <label>Sinopsis:</label><br>
+            <textarea name="synopsis" rows="5" cols="40">{{ session.get('form_data', {}).get('synopsis', '') }}</textarea>
+        </p>
+        <button type="submit">Guardar Película</button>
+    </form>
+</body>
+</html>

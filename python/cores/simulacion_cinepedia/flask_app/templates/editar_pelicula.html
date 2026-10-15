@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>CinePedia - Editar Película</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Editar Película</h1>
+        <div>
+            <a href="/cine">Inicio</a> | 
+            <a href="/logout">Cerrar Sesión</a>
+        </div>
+    </header>
+    {% with messages = get_flashed_messages(category_filter=["movie"]) %}
+        {% if messages %}
+            {% for msg in messages %}
+                <p class="error-msg">{{ msg }}</p>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    <form action="/cine/actualizar/{{ movie.id }}" method="POST">
+        <p>
+            <label>Nombre de Peli:</label><br>
+            <input type="text" name="title" value="{{ movie.title }}">
+        </p>
+        <p>
+            <label>Director:</label><br>
+            <input type="text" name="director" value="{{ movie.director }}">
+        </p>
+        <p>
+            <label>Fecha Estreno:</label><br>
+            <input type="date" name="release_date" value="{{ movie.release_date }}">
+        </p>
+        <p>
+            <label>Sinopsis:</label><br>
+            <textarea name="synopsis" rows="5" cols="40">{{ movie.synopsis }}</textarea>
+        </p>
+        <button type="submit">Guardar Película</button>
+    </form>
+</body>
+</html>
