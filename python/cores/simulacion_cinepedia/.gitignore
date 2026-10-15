@@ -9,9 +9,6 @@ ENV/
 .env.*
 !.env.example
 
-#exclusión de la carpeta resources
-resources/
-
 #archivos compilados
 __pycache__/
 *.py[cod]
