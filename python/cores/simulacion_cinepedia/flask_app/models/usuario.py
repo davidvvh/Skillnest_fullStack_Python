@@ -34,7 +34,7 @@ class usuario:
         return cls(result[0])
 
     @classmethod
-    def get_by_id(cls, data)
+    def get_by_id(cls, data):
         """usa el id para obtener a un usuario para una vista personalizada"""
         query = "SELECT * FROM usuarios WHERE id = %(id)s;"
         result = connectToMySQL(cls.DB).query_db(query, data)
@@ -58,3 +58,4 @@ class usuario:
 
         #formato correcto de e-mail valido[cite: 1]
         if not EMAIL_REGEX.match(data.get('email', '')):
+            pass
