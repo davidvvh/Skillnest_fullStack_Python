@@ -1,4 +1,4 @@
-from config.mysqlconnection import query_db
+from config.mysqlconnection import registrar_usuario, buscar_email
 
 def registrar_usuario(nombre, apellido, email, password):
     db = db
