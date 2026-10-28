@@ -1,7 +1,7 @@
-from config.mysqlconnection import get_db
+from config.mysqlconnection import query_db
 
 def registrar_usuario(nombre, apellido, email, password):
-    db = get_db()
+    db = db
     cursor = db.cursor()
     sql = """
         INSERT INTO usuarios (nombre, apellido, email, password)
@@ -16,7 +16,7 @@ def registrar_usuario(nombre, apellido, email, password):
 
 
 def buscar_email(email):
-    db = get_db()
+    db = db
     cursor = db.cursor(dictionary=True)
 
     cursor.execute(
@@ -33,7 +33,7 @@ def buscar_email(email):
 
 
 def buscar_usuario(id):
-    db = get_db()
+    db = db
     cursor = db.cursor(dictionary=True)
 
     cursor.execute(
