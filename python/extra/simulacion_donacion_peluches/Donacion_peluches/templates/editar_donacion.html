@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Donación</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="barra"><h2>Donación de Peluches</h2></div>
+    <div class="menu"><a href="/dashboard">Inicio</a><a href="/logout">Cerrar Sesión</a></div>
+
+    <div class="formulario pagina-formulario">
+        <h1>Editar Donación</h1>
+        {% with mensajes = get_flashed_messages() %}
+            {% for mensaje in mensajes %}<p class="error">{{ mensaje }}</p>{% endfor %}
+        {% endwith %}
+        <form action="/editar/{{ peluche.id }}" method="POST">
+            <label>Nombre</label><input type="text" name="nombre" value="{{ peluche.nombre }}" required>
+            <label>Descripción</label><textarea name="descripcion" required>{{ peluche.descripcion }}</textarea>
+            <button type="submit">Guardar</button>
+        </form>
+    </div>
+</body>
+</html>

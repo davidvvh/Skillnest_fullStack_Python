@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ver Donación</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="barra"><h2>Donación de Peluches</h2></div>
+    <div class="menu">
+        <a href="{{ '/dashboard' if session.get('usuario_id') else '/' }}">Inicio</a>
+        {% if session.get('usuario_id') %}<a href="/logout">Cerrar Sesión</a>{% endif %}
+    </div>
+
+    <div class="detalle-peluche">
+        <h1>{{ peluche.nombre }}</h1>
+        <p><strong>Dueño:</strong> {{ peluche.donador }}</p>
+        <p><strong>Descripción:</strong></p>
+        <p>{{ peluche.descripcion }}</p>
+        {% if peluche.adoptado_por %}
+            <p class="dato">Adoptado por: {{ peluche.adoptado_por }}</p>
+        {% else %}
+            <p class="dato">Este peluche todavía no ha sido adoptado.</p>
+        {% endif %}
+        <p class="dato">Visitas: {{ peluche.visitas }}</p>
+    </div>
+</body>
+</html>
